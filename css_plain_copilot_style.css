@@ -1,0 +1,125 @@
+/* Reset */
+* { box-sizing: border-box; margin: 0; }
+html, body { height: 100%; }
+
+:root {
+  --gap: 6px;
+  --pad: 6px;
+  --border: 3px;
+}
+
+/* Page container */
+.page-wrap {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: var(--gap);
+  /* Full viewport height so layout uses full screen */
+  height: 100vh;
+  padding: var(--pad);
+  border: var(--border) solid #e11; /* outer red frame */
+  background: white;
+  align-items: stretch;
+}
+
+/* Left sidebar */
+.sidebar {
+  border: var(--border) solid #e11;
+  background: white;
+  margin: 0;
+  height: 100%;
+  padding: var(--pad);
+}
+
+/* Right main area: 4-column grid with 4 rows to match picture */
+.main-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  /* Use flexible fractions so the right side fills the screen height */
+  grid-template-rows: 1.4fr 0.45fr 0.45fr 1fr;
+  gap: var(--gap);
+  padding: var(--pad);
+  height: 100%;
+}
+
+/* Generic box style matching red framed tiles */
+.box {
+  background: white;
+  border: var(--border) solid #e11;
+  padding: var(--pad);
+  min-height: 36px;
+}
+
+/* Top row: four small boxes */
+.b1 { grid-column: 1 / 2; grid-row: 1; }
+.b2 { grid-column: 2 / 3; grid-row: 1; }
+.b3 { grid-column: 3 / 4; grid-row: 1; }
+.b4 { grid-column: 4 / 5; grid-row: 1; }
+
+/* Middle: two stacked narrow bars on the left */
+.left-bar1 { grid-column: 1 / 3; grid-row: 2; }
+.left-bar2 { grid-column: 1 / 3; grid-row: 3; }
+
+/* Tall big rectangle on the right spanning rows 2-3 and columns 3-4 */
+.big-right { grid-column: 3 / 5; grid-row: 2 / 4; }
+
+/* Bottom row: long rectangle left and small box right */
+.bottom-left { grid-column: 1 / 4; grid-row: 4; }
+.bottom-right { grid-column: 4 / 5; grid-row: 4; }
+
+/* Responsive: stack columns on narrow screens */
+@media (max-width: 760px) {
+  /* Single column layout where every box is full width */
+  .page-wrap {
+    grid-template-columns: 1fr;
+    grid-template-areas: "main" "sidebar";
+    padding: var(--pad);
+    gap: var(--gap);
+    height: 100vh;
+  }
+
+  /* Sidebar stays visible and placed after the main grid */
+  .sidebar {
+    display: block;
+    grid-area: sidebar;
+    width: 100%;
+    margin: 0;
+    border-width: 4px;
+  }
+
+  /* Main grid stacks items; make each stacked box the same fixed height */
+  .main-grid {
+    grid-area: main;
+    grid-template-columns: 1fr;
+    /* Each stacked item will be the same height (viewport-relative) */
+    grid-auto-rows: 16vh;
+    gap: var(--gap);
+    padding: var(--pad);
+    height: auto;
+  }
+
+  /* Force every box to use full width of the column and the same height */
+  .box {
+    width: 100%;
+    display: block;
+    padding: var(--pad);
+    border-width: var(--border);
+    height: 16vh;
+    min-height: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  /* Make sidebar the same size as the other boxes on mobile */
+  .sidebar {
+    height: 16vh;
+    box-sizing: border-box;
+    overflow: hidden;
+    border-width: var(--border);
+    padding: var(--pad);
+  }
+
+  /* Ensure all specific boxes span the single column */
+  .b1, .b2, .b3, .b4, .left-bar1, .left-bar2, .big-right, .bottom-left, .bottom-right {
+    grid-column: 1 / -1;
+  }
+}
