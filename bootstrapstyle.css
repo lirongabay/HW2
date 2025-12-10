@@ -1,0 +1,104 @@
+/* Outer frame + layout grid */
+.layout-wrapper{
+  height:100vh;
+  box-sizing:border-box;
+  padding:14px; /* outer padding like picture */
+  border:5px solid #d32f2f; /* outer red frame */
+  display:grid;
+  grid-template-columns: 14% 1fr; /* narrow left column + content */
+  gap:14px; /* outer gap */
+  background: #fff;
+}
+
+/* Generic box style used for all inner boxes */
+.box{
+  background: #ffffff;
+  border:3px solid #d32f2f;
+  box-sizing: border-box;
+}
+
+/* Ensure each grid cell is an explicit box container and boxes fill their cell */
+.cell{ width:100%; height:100%; box-sizing:border-box; }
+.box{ display:block; width:100%; height:100%; }
+
+/* Sidebar (left tall column) */
+.sidebar{ height: calc(100vh - 2*14px - 10px); /* fill available height inside frame */ }
+
+/* Main grid (right side) */
+.main-grid{
+  /* wrapper for the inner framed content */
+  display:block;
+  padding:0;
+}
+
+/* Inner framed box that contains all small boxes */
+.inner-frame{
+  height:100%;
+  box-sizing:border-box;
+  border:3px solid #d32f2f;
+  padding:24px;
+  display:grid;
+  grid-template-rows: 140px 120px 1fr; /* top, middle, bottom heights */
+  gap:24px;
+  background:#fff;
+}
+
+/* Top row: 4 equal boxes */
+.top-row{ display:grid; grid-template-columns: repeat(4, 1fr); gap:24px; }
+.top-row .cell{ height:100%; }
+
+/* Middle row: left stacked column + right tall box */
+.middle-row{ display:grid; grid-template-columns: 30% 1fr; gap:24px; }
+.left-stack{ display:flex; flex-direction:column; gap:24px; }
+.left-stack .cell{ height:48px; } /* stacked short boxes */
+.middle-row .tall{ height: 100%; }
+
+/* Bottom row: large left + smaller right */
+.bottom-row{ display:grid; grid-template-columns: 2fr 1fr; gap:24px; }
+.bottom-row .wide{ height:100%; }
+
+/* small-right: slightly smaller height inside the bottom right box to match picture spacing */
+.small-right{ padding:0 }
+
+/* responsive: scale heights on small screens */
+@media (max-width: 900px){
+  .layout-wrapper{grid-template-columns: 24% 1fr;}
+  .main-grid{grid-template-rows: 120px 120px 1fr}
+  .left-stack .cell{height:44px}
+}
+
+/* Mobile: stack ALL boxes one after another for narrow screens (<=760px) */
+@media (max-width: 760px){
+  .layout-wrapper{
+    grid-template-columns: 1fr; /* single column */
+    padding:10px;
+    gap:10px;
+  }
+
+  /* Sidebar becomes first full-width block */
+  .sidebar{ height: auto; width:100%; }
+
+  /* Inner frame becomes vertical flow */
+  .inner-frame{
+    display:block;
+    padding:12px;
+    gap:12px;
+  }
+
+  /* Make every cell inside inner-frame full-width and the same height */
+  .inner-frame .cell{
+    display:block;
+    width:100%;
+    height:120px; /* uniform bar height like the reference image */
+    margin-bottom:12px;
+  }
+
+  /* remove any nested grid behaviors so children don't float */
+  .top-row, .middle-row, .bottom-row, .left-stack{ display:block; }
+
+  /* remove extra margins on last child */
+  .inner-frame .cell:last-child{ margin-bottom:0; }
+
+  /* remove outer frame shrink on very small screens so layout fits */
+  .layout-wrapper{ border-width:4px; }
+}

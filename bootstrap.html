@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Box Layout</title>
+  <link rel="stylesheet" href="bootstrapstyle.css">
+</head>
+<body>
+  <div class="layout-wrapper">
+    <aside class="sidebar box"></aside>
+
+    <main class="main-grid">
+      <div class="inner-frame">
+        <!-- Top row: four boxes -->
+        <div class="top-row">
+          <div class="cell box"></div>
+          <div class="cell box"></div>
+          <div class="cell box"></div>
+          <div class="cell box"></div>
+        </div>
+
+        <!-- Middle row: left stacked, right tall -->
+        <div class="middle-row">
+          <div class="left-stack">
+            <div class="cell box small"></div>
+            <div class="cell box small"></div>
+          </div>
+          <div class="cell box tall"></div>
+        </div>
+
+        <!-- Bottom row: two wide boxes -->
+        <div class="bottom-row">
+          <div class="cell box wide"></div>
+          <div class="cell box wide small-right"></div>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
