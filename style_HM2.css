@@ -1,0 +1,11 @@
+p {
+    text-align: right;
+    background-color: rgb(231, 178, 221);
+    border-radius: 10px;
+    width: fit-content;
+    padding: 10px;
+}
+
+a {
+    text-decoration: none;
+}
