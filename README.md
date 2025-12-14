@@ -9,4 +9,6 @@
 - bootstrapstyle.css-  קובץ CSS לקובץ הקודם
 - Flexbox.html-קובץ HTML שנוצר על ידי CO PILOT לטובת FLEX
 - Plain_FlexStyle.css-  קובץ CSS לקובץ הקודם
+
+לינק לאתר - [https://lirongabay.github.io/HW2/Hw2.html](url)
   
