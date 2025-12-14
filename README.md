@@ -8,7 +8,7 @@
 
 ## קישור לאתר
 🔗 קישור לאתר (GitHub Pages):  
-https://lirongabay.github.io/HW2/HW2.html
+https://lirongabay.github.io/HW2/Hw2.html
 
 ---
 
