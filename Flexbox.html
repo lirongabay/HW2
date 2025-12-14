@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Flexbox Layout</title>
+	<link rel="stylesheet" href="Plain_FlexStyle.css">
+</head>
+<body>
+	<div id="layout" class="col-12 height100 d1">
+		<!-- Sidebar -->
+		<div class="col-2 height100 sidebar"></div>
+
+		<div class="col-10 content">
+			<!-- Top row with four equal boxes -->
+			<div class="top-row">
+				<div class="col-3 height100 top-box"></div>
+				<div class="col-3 height100 top-box"></div>
+				<div class="col-3 height100 top-box"></div>
+				<div class="col-3 height100 top-box"></div>
+			</div>
+
+			<!-- Middle row: two stacked on the left, one tall on the right -->
+			<div class="mid-row">
+				<div class="col-5 height100 mid-left">
+					<div class="col-12 stack-box"></div>
+					<div class="col-12 stack-box"></div>
+				</div>
+				<div class="col-7 height100 mid-right"></div>
+			</div>
+
+			<!-- Bottom row: wide box left, tall box right -->
+			<div class="bottom-row">
+				<div class="col-8 height100 bottom-left"></div>
+				<div class="col-4 height100 bottom-right"></div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
