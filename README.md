@@ -1,3 +1,17 @@
+# HW2 – HTML & CSS Project
+
+## תיאור הפרויקט
+פרויקט זה נוצר במסגרת תרגיל בקורס פיתוח Web.  
+האתר מדגים שימוש בקובץ HTML אחד ובמספר קובצי CSS, כאשר כל קובץ מציג שיטת עיצוב שונה.
+
+---
+
+## קישור לאתר
+🔗 קישור לאתר (GitHub Pages):  
+https://lirongabay.github.io/HW2/HW2.html
+
+---
+
 ## Files Description
 - Hw2.html – קובץ ה-HTML הראשי של האתר
 - style_HW2.css- קובץ CSS לקובץ הקודם
@@ -10,5 +24,4 @@
 - Flexbox.html-קובץ HTML שנוצר על ידי CO PILOT לטובת FLEX
 - Plain_FlexStyle.css-  קובץ CSS לקובץ הקודם
 
-לינק לאתר - [https://lirongabay.github.io/HW2/Hw2.html](url)
   
